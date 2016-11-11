@@ -9,11 +9,12 @@ function start(route,handle){ //add the parameter route and handle
 
 		// route(handle,pathname);      //将路由函数作为参数传递过去
 
-		response.writeHead(200, {"Content-Type": "text/plain"});
-		var content = route(handle, pathname);
+		// response.writeHead(200, {"Content-Type": "text/plain"});
+		// var content = route(handle, pathname);
 		// response.write("Hi World ~");
-		response.write(content);          // reconstitute to enable responding to browser according to returned content of routers
-		response.end();
+		// response.write(content);          // reconstitute to enable responding to browser according to returned content of routers
+		// response.end();                //all response related func removed
+		route(handle, pathname, response);  //we set the obj. [response] as third one to pass to func route()
 	// console.log("Request received");
     }
 
