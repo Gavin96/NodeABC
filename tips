@@ -9,7 +9,7 @@ start nodejs in windows
 -------just input just like "cd .." for two times to get the location C:\
 
 ---------and then you could input that command like "cd Users\Administer" to enter the path "C:\Users\Administer"
-
+ 
 ------------thus get "C:\Users\Administer>"
 
 ------------------then "node helloworld.js" can perform that .js file in that specified path
@@ -24,4 +24,4 @@ start nodejs in windows
 
 -----------to get into that appointed for your js file 
 
-----------------thus just node filename.js will be ok.
+----------------thus just node filename.js will be ok. 
