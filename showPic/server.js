@@ -1,25 +1,26 @@
-var http = require("http");      //请求Node.js自带的http模块，并将其赋值给http变量
+var http = require("http");
 var url = require("url");
 
-function start(route,handle){ //add the parameter route and handle 
-	function onRequest(request, response){       //createServer函数会返回一个对象
-		// console.log("Request received");
+function start(route, handle){
+	function onRequest(request, response){
+		var postData = "";
 		var pathname = url.parse(request.url).pathname;
 		console.log("Request for " + pathname + " received.");
 
-		// route(handle,pathname);      //将路由函数作为参数传递过去
+		request.setEncoding("utf-8");   //设置接收数据的编码格式为UTF-8
 
-		// response.writeHead(200, {"Content-Type": "text/plain"});
-		// var content = route(handle, pathname);
-		// response.write("Hi World ~");
-		// response.write(content);          // reconstitute to enable responding to browser according to returned content of routers
-		// response.end();                //all response related func removed
-		route(handle, pathname, response);  //we set the obj. [response] as third one to pass to func route()
-	// console.log("Request received");
-    }
+		request.addListener("data", function(postDataChunk){       //注册"data"时间监听器
+			postData += postDataChunk;
+			console.log("Received POST data chunk '"+ postDataChunk + "'.");
+		});
 
-    http.createServer(onRequest).listen(8888);   //对象具有listen的方法，其中的数值参数指定HTTP服务器监听的端口号
-    console.log("Server has started.");
+		request.addListener("end", function(){
+			route(handle, pathname, response. postData);
+		});
+	}
+
+	http.createServer(onRequest).listen(8888);
+	console.log("Server has started.");
 }
 
 exports.start = start;
