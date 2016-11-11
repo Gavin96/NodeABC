@@ -1,4 +1,3 @@
-
 var http = require("http");      //请求Node.js自带的http模块，并将其赋值给http变量
 var url = require("url");
 
@@ -8,10 +7,12 @@ function start(route,handle){ //add the parameter route and handle
 		var pathname = url.parse(request.url).pathname;
 		console.log("Request for " + pathname + " received.");
 
-		route(handle,pathname);      //将路由函数作为参数传递过去
+		// route(handle,pathname);      //将路由函数作为参数传递过去
 
 		response.writeHead(200, {"Content-Type": "text/plain"});
-		response.write("Hi World ~");
+		var content = route(handle, pathname);
+		// response.write("Hi World ~");
+		response.write(content);          // reconstitute to enable responding to browser according to returned content of routers
 		response.end();
 	// console.log("Request received");
     }
