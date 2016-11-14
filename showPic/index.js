@@ -4,8 +4,10 @@ var router = require("./router");     //使得路由函数可以被注入到服�
 var requestHandlers = require("./requestHandlers");
 
 var handle = {}
+// 路由映射表
 handle["/"] = requestHandlers.start;
 handle["/start"] = requestHandlers.start;
 handle["/upload"] = requestHandlers.upload;
+handle["/show"] = requestHandlers.show;
 
 server.start(router.route,handle);
