@@ -6,7 +6,7 @@ start nodejs in windows
 
 ----1. if your target path is in hard disk C
 
--------just input just like "cd .." for two times to get the location C:\
+-------just input like "cd .." for two times to get the location C:\
 
 ---------and then you could input that command like "cd Users\Administer" to enter the path "C:\Users\Administer"
  
@@ -18,10 +18,10 @@ start nodejs in windows
 
 ----2. if you target at files in other hard disk such as disk D
 
--------enter "d:" the switch into disk D, showing "D:\>"
+-------enter "d:" to switch into disk D, showing "D:\>"
 
----------then just put into your target  file path, may be "cd GitUse\NodeLcoal"
+---------then just put into your target file pathname, may be "cd GitUse\NodeLcoal"
 
------------to get into that appointed for your js file 
+-----------to get into that appointed path for your js file 
 
 ----------------thus just node filename.js will be ok. 
