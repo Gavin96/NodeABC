@@ -7,7 +7,7 @@ function start(route, handle){
 		var pathname = url.parse(request.url).pathname;
 		console.log("Request for " + pathname + " received.");
 
-		request.setEncoding("utf-8");   //设置接收数据的编码格式为UTF-8
+		request.setEncoding("utf8");   //设置接收数据的编码格式为UTF-8
 
 		request.addListener("data", function(postDataChunk){       //注册"data"时间监听器
 			postData += postDataChunk;
@@ -15,7 +15,7 @@ function start(route, handle){
 		});
 
 		request.addListener("end", function(){
-			route(handle, pathname, response. postData);
+			route(handle, pathname, response, postData);
 		});
 	}
 
