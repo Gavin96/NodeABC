@@ -1,4 +1,4 @@
-var http = require("http");
+var http = require("http");   //使用require指令来载入nodejs自带的http模块，并将实例化的HTTP赋值给http变量
 var url = require("url");
 
 function start(route, handle){
@@ -21,6 +21,7 @@ function start(route, handle){
 	}
 
 	http.createServer(onRequest).listen(8888);
+	//调用http模块提供的函数:createServer,返回一个具有listen方法的对象,这个方法有一个数值参数,指定这个HTTP服务器监听的端口号.
 	console.log("Server has started.");
 }
 

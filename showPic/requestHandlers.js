@@ -22,7 +22,12 @@ function start(response){
 	'</body>'+
 	'</html>';
 
-	response.writeHead(200, {"Content-Type": "text/html"});
+
+
+	//发送HTTP头部
+	//HTTP 状态值：200 ：OK
+	//内容类型：text/html
+	response.writeHead(200, {"Content-Type": "text/html"});    
 	response.write(body);
 	response.end();
 }
