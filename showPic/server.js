@@ -22,6 +22,7 @@ function start(route, handle){
 
 	http.createServer(onRequest).listen(8888);
 	//调用http模块提供的函数:createServer,返回一个具有listen方法的对象,这个方法有一个数值参数,指定这个HTTP服务器监听的端口号.
+	//函数通过request，response参数来接收和响应数据
 	console.log("Server has started.");
 }
 
