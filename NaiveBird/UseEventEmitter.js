@@ -2,6 +2,8 @@ var events = require('events');
 
 var eventEmitter = new events.EventEmitter();
 
+// eventEmitter.emit('error');
+
 // 监听器 #1
 var listener1 = function listener1() {
 	console.log('Monitor listener1 executes.');
@@ -34,4 +36,4 @@ eventEmitter.emit('connection');
 eventListeners = require('events').EventEmitter.listenerCount(eventEmitter, 'connection');
 console.log('There are ' + eventListeners + ' monitors are monitoring conncetionEvents');
 
-console.log('pro executes over.')
+console.log('pro executes over.') 
