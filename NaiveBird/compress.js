@@ -17,7 +17,7 @@ fs.createReadStream("input.txt")
 
 console.log("Compressing is over.");
 
-console.log("let's sleep for 3s.")
+console.log("let's sleep for 3s.");
 sleep(3000);
 
 console.log("let's executes the decompress op.");
@@ -30,3 +30,16 @@ fs2.createReadStream("input3.txt.gz")
 	.pipe(fs2.createWriteStream("input3.txt"));
 
 console.log("Decompressing done.");
+
+console.log("\n");
+
+
+console.log("Simulates the module imports.....");
+console.log("let's sleep for 3s.");
+sleep(3000);
+
+// import.js
+var Hello = require("./hello");
+hello = new Hello();
+hello.setName("NaiveBird ！");
+hello.sayHello();

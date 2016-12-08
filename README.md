@@ -50,4 +50,9 @@
 
       -----thus just node filename.js will be ok. 
 
-
+------
+### Several frequently-used parameters in method require(' ') for NodeJs:
+    原生模块:  http、 fs、 path等;
+    相对路径的文件模块:   ./mod或../mod;
+    绝对路径的文件模块:   /pathtomodule/mod;
+    非原生模块的文件模块:   mod;
