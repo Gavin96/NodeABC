@@ -46,3 +46,12 @@ writerStream.on('error', function(err) {
 });
 
 console.log("Pro2 executes over.");
+console.log("\n");
+var fs3 = require('fs');
+
+var readerStream = fs3.createReadStream("input.txt");
+var writerStream = fs3.createWriteStream("output2.txt");
+
+readerStream.pipe(writerStream);
+
+console.log("Pro3 executes over");
