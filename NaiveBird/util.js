@@ -19,4 +19,17 @@ objBase.sayHello();
 console.log(objBase);
 var objSub = new Sub();
 objSub.showName();
-console.log(objSub);
+console.log(objSub); 
+
+console.log('\n');
+
+function Person() {
+	this.name = 'byvoid';
+	this.toString = function() {
+		return this.name;
+	};
+}
+
+var obj = new Person();
+console.log(util.inspect(obj));
+console.log(util.inspect(obj, true));
