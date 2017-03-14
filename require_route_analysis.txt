@@ -1,0 +1,53 @@
+require 路径解析规则：
+情景为：在Y路径下，使用require(X)引用，会按以下步骤进行解析：
+1. 如果X是内置的模块，比如http,net等， 直接返回over;
+2. 如果X带上'/'或者'./'或者'../'：
+	会根据X所在的父目录，确定x所在的绝对位置；
+	先假设X是文件，然后按照顺序依次查找下列文件：
+		X
+		X.js
+		X.json
+		X.node 如果找到上述其中之一，则返回；	
+	如果X是目录，则依次查找下列文件：
+		X/package.json(main字段)
+		X/index.js
+		X/index.json
+		X/index.node  如果找到上述其中之一，则返回；
+3. 如果X不是以'/'或'./'或'../'开头，则会根据X所在的父目录，对node_modules进行回溯遍历，
+接着，通过上述确定X为文件或者目录的方式，进行查找；
+4. 如果上述的流程都没有找到，则会抛出错误(Not Found)
+
+eg.
+这里,我们具体来看一下 node_modules的查找. 假设在路径/usr/app/shop 下运行 require('bar'); 之后, 程序遍历的结果是.
+
+首先, 假设bar是文件,查找路径为
+
+/usr/app/shop/node_modules/bar
+
+/usr/app/shop/node_modules/bar.js
+
+/usr/app/shop/node_modules/bar.json
+
+/usr/app/shop/node_modules/bar.node
+
+如果,在该目录下没有找到,则会进行回朔(../).则遍历路径为:
+
+/usr/app/shop/node_modules
+
+/usr/app/node_modules
+
+/usr/node_modules
+
+/node_modules
+
+如果假设为目录. 类似,查找为:
+
+bar/package.json(main)
+
+bar/index.js
+
+bar/index.json
+
+bar/index.node
+
+同样,也有路径回朔(../). 如上,这里就不赘述了
